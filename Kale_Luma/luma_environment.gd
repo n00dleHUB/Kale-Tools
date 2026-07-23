@@ -30,7 +30,8 @@ const PRESETS := {
 		"hdri": "kloofendal_48d_partly_cloudy_puresky_4k.hdr",
 		"sdfgi": false, "ssao": false, "ssil": false, "ssr": false },
 	"Night": { "intensity": 0.8, "rotation": 90.0, "ambient": Color(0.65, 0.75, 1.0), "ambient_strength": 0.5,
-		"sun": false, "sky": true, "hdri": "qwantani_moon_noon_puresky_2k.hdr",
+		"sun": true, "sun_elevation": 45.0, "sun_azimuth": 150.0, "sun_color": Color(0.02, 0.02, 0.06), "sun_energy": 0.1,
+		"sky": true, "hdri": "qwantani_moon_noon_puresky_2k.hdr",
 		"sdfgi": false, "ssao": false, "ssil": false, "ssr": false },
 }
 
@@ -134,13 +135,14 @@ static func clear_sun() -> void:
 		sun.queue_free()
 
 
-static func update_gi_ao(env: Environment, sdfgi: bool, ssao: bool, ssil: bool, ssr: bool) -> void:
+static func update_gi_ao(env: Environment, sdfgi: bool, ssao: bool, ssil: bool, ssr: bool, sdfgi_energy: float) -> void:
 	if not env:
 		return
 	env.sdfgi_enabled = sdfgi
 	env.ssao_enabled = ssao
 	env.ssil_enabled = ssil
 	env.ssr_enabled = ssr
+	env.sdfgi_energy = sdfgi_energy
 
 
 static func disable_editor_preview_sun() -> void:

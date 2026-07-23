@@ -44,6 +44,8 @@ var _sdfgi: CheckBox
 var _ssao: CheckBox
 var _ssil: CheckBox
 var _ssr: CheckBox
+var _sdfgi_energy_spin: SpinBox
+var _sdfgi_energy_slider: HSlider
 
 var _setting_slider := false
 
@@ -380,6 +382,25 @@ func build_panel() -> Control:
 	_ssr.toggled.connect(func(_t: bool): _on_changed())
 	_ssr.button_pressed = true
 	gia_body.add_child(_ssr)
+
+	_sdfgi_energy_spin = SpinBox.new()
+	_sdfgi_energy_slider = HSlider.new()
+	gia_body.add_child(_make_slider_row("SDFGI Energy:", _sdfgi_energy_spin, _sdfgi_energy_slider, 0.0, 2.0, 0.01, 1.0))
+	_sdfgi_energy_slider.value_changed.connect(func(v):
+		if _setting_slider: return
+		_setting_slider = true
+		_sdfgi_energy_spin.value = v
+		_setting_slider = false
+		_on_changed()
+	)
+	_sdfgi_energy_spin.value_changed.connect(func(v):
+		if _setting_slider: return
+		_setting_slider = true
+		_sdfgi_energy_slider.value = v
+		_setting_slider = false
+		_on_changed()
+	)
+
 	_panel.add_child(_make_section("GI & AO", true, gia_body))
 
 	var neutral_idx := 0
@@ -562,7 +583,7 @@ func _live_update() -> void:
 			we.queue_free()
 
 	if we and we.environment and _sdfgi:
-		Env.update_gi_ao(we.environment, _sdfgi.button_pressed, _ssao.button_pressed, _ssil.button_pressed, _ssr.button_pressed)
+		Env.update_gi_ao(we.environment, _sdfgi.button_pressed, _ssao.button_pressed, _ssil.button_pressed, _ssr.button_pressed, _sdfgi_energy_spin.value)
 
 	Env.update_sun(
 		_sun_enabled.button_pressed,
