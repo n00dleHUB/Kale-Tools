@@ -30,8 +30,9 @@ const PRESETS := {
 		"hdri": "kloofendal_48d_partly_cloudy_puresky_4k.hdr",
 		"sdfgi": false, "ssao": false, "ssil": false, "ssr": false },
 	"Night": { "intensity": 0.8, "rotation": 90.0, "ambient": Color(0.65, 0.75, 1.0), "ambient_strength": 0.5,
-		"sun": true, "sun_elevation": 45.0, "sun_azimuth": 150.0, "sun_color": Color(0.02, 0.02, 0.06), "sun_energy": 0.1,
+		"sun": true, "sun_elevation": 45.0, "sun_azimuth": 150.0, "sun_color": Color.WHITE, "sun_energy": 0.3,
 		"sky": true, "hdri": "qwantani_moon_noon_puresky_2k.hdr",
+		"sdfgi_energy": 0.75,
 		"sdfgi": false, "ssao": false, "ssil": false, "ssr": false },
 }
 

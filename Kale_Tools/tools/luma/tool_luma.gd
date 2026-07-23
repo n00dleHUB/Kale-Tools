@@ -512,6 +512,8 @@ func _on_preset_changed(idx: int) -> void:
 	_sun_shadow_distance_spin.value = data.get("shadow_distance", 100.0)
 	_sun_shadow_bias_slider.value = data.get("shadow_bias", 0.02)
 	_sun_shadow_bias_spin.value = data.get("shadow_bias", 0.02)
+	_sdfgi_energy_slider.value = data.get("sdfgi_energy", 1.0)
+	_sdfgi_energy_spin.value = data.get("sdfgi_energy", 1.0)
 	_setting_slider = false
 	_live_update()
 
