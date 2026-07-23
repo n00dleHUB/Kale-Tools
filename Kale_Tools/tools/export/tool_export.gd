@@ -1,6 +1,8 @@
 @tool
 extends Node
 
+var plugin_root := ""
+
 const STEP_NAMES := ["Delete", "Import", "Copy Transforms", "Chroma", "Export"]
 const ES_PREFIX := "kale/export/"
 
