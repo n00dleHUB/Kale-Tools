@@ -29,7 +29,7 @@ You only need **Kale_Tools** if you want all of them.
 
 ## Tools
 
-- **Chroma** — Apply material color, texture, and pattern. Restores materials on Godot reboot.
+- **Chroma** — Apply material color, patterns or even a custom texture. Restores materials on Godot reboot. Basically just an alternative to Matavatar's Recolorizer plugin. Added some stuff I really wanted from it and overhauled it abit. Functions the same way.
   <img width="603" height="859" alt="Chroma" src="https://github.com/user-attachments/assets/c988cc12-2f14-4ac7-80fc-e0f5cde80d5b" />
 
 - **Luma** — Sky, sun with shadows, ambient light, fog, and GI. Supports custom HDRIs.
