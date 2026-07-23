@@ -4,6 +4,10 @@ extends Node
 static var plugin_root := ""
 
 
+static func set_plugin_root(path: String) -> void:
+	plugin_root = path
+
+
 static func build_tab_dock() -> VBoxContainer:
 	var dock := VBoxContainer.new()
 	dock.custom_minimum_size = Vector2(280, 0)
@@ -16,8 +20,8 @@ static func build_tab_dock() -> VBoxContainer:
 	var panels: Array[Control] = []
 	for tool in tools:
 		tool.plugin_root = plugin_root
-		var name := tool.get_tool_name()
-		var panel := tool.build_panel() as Control
+		var name: String = tool.get_tool_name()
+		var panel: Control = tool.build_panel() as Control
 		panel.name = name
 		panel.add_child(tool)
 		panel.visible = false

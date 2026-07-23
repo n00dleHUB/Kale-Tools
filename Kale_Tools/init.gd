@@ -1,13 +1,14 @@
 @tool
 extends EditorPlugin
 
+const TR = preload("tools/tool_registry.gd")
+
 var _dock: Control
 
 
 func _enter_tree():
 	var root: String = get_script().resource_path.get_base_dir()
-	const TR = preload("tools/tool_registry.gd")
-	TR.plugin_root = root
+	TR.set_plugin_root(root)
 	_dock = TR.build_tab_dock()
 	_dock.name = "Kale Tools"
 	add_control_to_dock(DOCK_SLOT_RIGHT_UL, _dock)
