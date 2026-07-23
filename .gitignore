@@ -1,3 +1,4 @@
 *.uid
 **/cache/*.cfg
 .cache/
+DEVELOPER_GUIDE.md
