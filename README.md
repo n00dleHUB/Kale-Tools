@@ -4,7 +4,7 @@ Collection of Godot 4.x plugins I made and use daily when working with Battlefie
 
 Pick the full suite called **Kale_Tools** or just the individual tool you need. You only need **Kale_Tools** if you want all of them.
 
-If you don't want the full suite, simply pick and choose from any of the **Kale_** tools — drag their individual folder into `godotproject/addons/`. You don't need Kale_Tools.
+If you don't want the full suite, simply pick and choose from the individual folders below — drag the one you want into `godotproject/addons/`. You don't need Kale_Tools.
 
 <img width="2551" height="1400" alt="Kale Tools" src="https://github.com/user-attachments/assets/95fd1823-04ca-48be-9518-03d8eb79dbdc" />
 
