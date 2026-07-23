@@ -209,7 +209,7 @@ func build_panel() -> Control:
 
 	_sun_elevation_spin = SpinBox.new()
 	_sun_elevation_slider = HSlider.new()
-	sun_body.add_child(_make_slider_row("Elevation:", _sun_elevation_spin, _sun_elevation_slider, 0.0, 90.0, 0.1, 60.0))
+	sun_body.add_child(_make_slider_row("Elevation:", _sun_elevation_spin, _sun_elevation_slider, 0.0, 90.0, 0.1, 40.0))
 	_sun_elevation_slider.value_changed.connect(func(v):
 		if _setting_slider: return
 		_setting_slider = true
@@ -384,7 +384,7 @@ func build_panel() -> Control:
 
 	var neutral_idx := 0
 	for i in range(_preset.item_count):
-		if _preset.get_item_text(i) == "Neutral":
+		if _preset.get_item_text(i) == "Midday":
 			neutral_idx = i
 			break
 	_preset.select(neutral_idx)
@@ -466,13 +466,21 @@ func _on_preset_changed(idx: int) -> void:
 	_ambient_slider.value = data.get("ambient_strength", 0.6)
 	_ambient_spin.value = data.get("ambient_strength", 0.6)
 	_sky_enabled.button_pressed = data.get("sky", true)
+
+	var hdri_name: String = data.get("hdri", "")
+	if not hdri_name.is_empty():
+		for i in _hdri_list.item_count:
+			if _hdri_list.get_item_text(i) == hdri_name:
+				_hdri_list.select(i)
+				break
+
 	_sun_enabled.button_pressed = data.get("sun", true)
 	_fog_enabled.button_pressed = data.get("fog", false)
 	_fog_density_slider.value = data.get("fog_density", 0.005)
 	_fog_density_spin.value = data.get("fog_density", 0.005)
 	_fog_color.color = data.get("fog_color", Color(0.8, 0.85, 0.9))
-	_sun_elevation_slider.value = data.get("sun_elevation", 60.0)
-	_sun_elevation_spin.value = data.get("sun_elevation", 60.0)
+	_sun_elevation_slider.value = data.get("sun_elevation", 40.0)
+	_sun_elevation_spin.value = data.get("sun_elevation", 40.0)
 	_sun_azimuth_slider.value = data.get("sun_azimuth", 150.0)
 	_sun_azimuth_spin.value = data.get("sun_azimuth", 150.0)
 	_sun_color.color = data.get("sun_color", Color(1, 0.96, 0.9))
