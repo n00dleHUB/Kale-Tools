@@ -281,7 +281,7 @@ func build_panel() -> Control:
 
 	_sun_shadow_distance_spin = SpinBox.new()
 	_sun_shadow_distance_slider = HSlider.new()
-	sun_body.add_child(_make_slider_row("Shadow Distance:", _sun_shadow_distance_spin, _sun_shadow_distance_slider, 0.0, 200.0, 1.0, 200.0))
+	sun_body.add_child(_make_slider_row("Shadow Distance:", _sun_shadow_distance_spin, _sun_shadow_distance_slider, 0.0, 200.0, 1.0, 100.0))
 	_sun_shadow_distance_slider.value_changed.connect(func(v):
 		if _setting_slider: return
 		_setting_slider = true
@@ -299,7 +299,7 @@ func build_panel() -> Control:
 
 	_sun_shadow_bias_spin = SpinBox.new()
 	_sun_shadow_bias_slider = HSlider.new()
-	sun_body.add_child(_make_slider_row("Shadow Bias:", _sun_shadow_bias_spin, _sun_shadow_bias_slider, 0.0, 0.1, 0.001, 0.0))
+	sun_body.add_child(_make_slider_row("Shadow Bias:", _sun_shadow_bias_spin, _sun_shadow_bias_slider, 0.0, 0.1, 0.001, 0.02))
 	_sun_shadow_bias_slider.value_changed.connect(func(v):
 		if _setting_slider: return
 		_setting_slider = true
@@ -479,10 +479,10 @@ func _on_preset_changed(idx: int) -> void:
 	_sun_energy_slider.value = data.get("sun_energy", 1.0)
 	_sun_energy_spin.value = data.get("sun_energy", 1.0)
 	_sun_shadows.button_pressed = data.get("shadows", true)
-	_sun_shadow_distance_slider.value = data.get("shadow_distance", 200.0)
-	_sun_shadow_distance_spin.value = data.get("shadow_distance", 200.0)
-	_sun_shadow_bias_slider.value = data.get("shadow_bias", 0.0)
-	_sun_shadow_bias_spin.value = data.get("shadow_bias", 0.0)
+	_sun_shadow_distance_slider.value = data.get("shadow_distance", 100.0)
+	_sun_shadow_distance_spin.value = data.get("shadow_distance", 100.0)
+	_sun_shadow_bias_slider.value = data.get("shadow_bias", 0.02)
+	_sun_shadow_bias_spin.value = data.get("shadow_bias", 0.02)
 	_setting_slider = false
 	_live_update()
 
