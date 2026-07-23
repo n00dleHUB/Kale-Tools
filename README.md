@@ -1,6 +1,6 @@
 # Kale Tools
 
-Collection of Godot 4.x scene editing utilities. Pick the full suite or just the tools you need.
+Collection of Godot 4.x scene editing utilities. Pick the full suite called "Kale-Tools" or just the individual tool you need.
 
 <img width="2551" height="1400" alt="Kale Tools" src="https://github.com/user-attachments/assets/95fd1823-04ca-48be-9518-03d8eb79dbdc" />
 
