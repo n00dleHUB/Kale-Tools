@@ -582,7 +582,7 @@ func _live_update() -> void:
 			_applied_hdri = ""
 			we.queue_free()
 
-	if we and we.environment and _sdfgi:
+	if we and we.environment and _sdfgi and _sdfgi_energy_spin:
 		Env.update_gi_ao(we.environment, _sdfgi.button_pressed, _ssao.button_pressed, _ssil.button_pressed, _ssr.button_pressed, _sdfgi_energy_spin.value)
 
 	Env.update_sun(
